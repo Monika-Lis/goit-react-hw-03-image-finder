@@ -32,7 +32,9 @@ export const App = () => {
       } catch (error) {
         Notiflix.Notify.info('Error fetching data');
       } finally {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       }
     };
     fetchImages();
