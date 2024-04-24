@@ -32,9 +32,7 @@ export const App = () => {
       } catch (error) {
         Notiflix.Notify.info('Error fetching data');
       } finally {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1000);
+        setIsLoading(false);
       }
     };
     fetchImages();
@@ -49,6 +47,7 @@ export const App = () => {
 
   const onLoadMore = async () => {
     if (!loadMore) {
+      loadMoreError();
       Notiflix.Notify.info(
         "We're sorry, but you've reached the end of search results."
       );
