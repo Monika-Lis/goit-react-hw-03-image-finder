@@ -11,12 +11,18 @@
   flex-direction: row;
   gap: 20px;
 }
+
 .button {
   background-color: white;
   border: none;
   border-radius: 5px;
   padding: 5px;
   width: 70px;
+}
+
+.button:hover,
+.button:active {
+  background-color: rgb(225, 214, 255);
 }
 
 .input {
