@@ -1,0 +1,28 @@
+.searchbar {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  background-color: rgb(177, 154, 240);
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 70px;
+}
+
+.input {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+}
