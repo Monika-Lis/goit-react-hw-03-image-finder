@@ -6,7 +6,7 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Loader } from './Loader/Loader';
 import { Button } from './Button/Button';
-// import { Modal } from './Modal/Modal';
+import { Modal } from './Modal/Modal';
 
 const API_KEY = '42646310-ef56125427efcfe7b949942a4';
 
@@ -16,6 +16,8 @@ export const App = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [loadMore, setLoadMore] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [largeImageUrl, setLargeImageUrl] = useState('');
 
   useEffect(() => {
     if (query === '') return;
@@ -56,13 +58,23 @@ export const App = () => {
     setPage(prevPage => prevPage + 1);
   };
 
+  const openModal = event => {
+    const largeImage = event.target.getAttribute('data-large');
+    setLargeImageUrl(largeImage);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className={css.div}>
       <Searchbar onSearch={onSearch}></Searchbar>
-
-      <ImageGallery images={images} />
       {isLoading && <Loader />}
+      <ImageGallery images={images} openModal={openModal} />
       {images.length > 0 && <Button onLoadMore={onLoadMore}>Load More</Button>}
+      {showModal && <Modal imageUrl={largeImageUrl} onClose={closeModal} />}
     </div>
   );
 };

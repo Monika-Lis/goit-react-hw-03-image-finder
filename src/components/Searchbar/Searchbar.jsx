@@ -1,5 +1,6 @@
 import css from './Searchbar.module.css';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export const Searchbar = ({ onSearch }) => {
   const [inputValue, setInputValue] = useState('');
@@ -33,4 +34,8 @@ export const Searchbar = ({ onSearch }) => {
       </form>
     </header>
   );
+};
+
+Searchbar.propTypes = {
+  onSearch: PropTypes.func,
 };
